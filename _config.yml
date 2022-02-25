@@ -21,9 +21,9 @@
 title: 흔한 개발자
 email: francium503@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  흔한 개발자
+  C,C++ 그러고 Js 다루고
+  Windows, SQL Server 위에 React.js랑 Electron을 살짝 끼얹은 개발자
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://francium503.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
