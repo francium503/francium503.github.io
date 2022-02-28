@@ -28,7 +28,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://francium503.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username: francium503
-category_list: [ Windows, jekyll update, blog ]
 
 # Build settings
 
