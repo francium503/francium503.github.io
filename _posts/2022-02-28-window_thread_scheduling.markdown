@@ -28,6 +28,7 @@ Sleep(0)과 비슷하지만 SwitchToThread의 경우 더 낮은 우선순위의 
 
 
 CONTEXT 구조체
+
 CONTEXT_CONTROL 영역 - 인스트럭션 포인터, 스택포인터, 플래그, 함수 반환 주소 등의 CPU 제어 레지스터 값
 CONTEXT_INTEGER 영역 - CPU의 정수 레지스터 값
 CONTEXT_FLOATING_POINT 영역 - CPU의 부동소수점 레지스터 값
@@ -50,6 +51,7 @@ CONTEXT_EXTENDED_REGISERS 영역 - CPU의 확장 레지스터 값
 
 
 선호도
+
 윈도우는 스레드를 프로세서에 할당할 때 소프트 선호도를 사용한다.
 다른 모든 조건이 동일 할 때 마지막으로 스레드를 수행했던 프로세서가 동일 스레드를 다시 수행하도록 하는것.
 이 경우 케시메모리에 있는 데이터를 재사용할 가능성이 있어서.
