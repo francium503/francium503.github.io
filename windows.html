@@ -11,7 +11,7 @@ layout: default
     {% assign posts = paginator.posts %}
   {% endif %}
   {% for post in posts %}
-    {% if post.category == "Windows" %}
+    {% if post.categories == "Windows" %}
       <div class="post-entry">
         <time datetime="{{ post.date | date_to_xmlschema }}" class="post-meta">{{ post.date | date_to_string }}</time>
         <h2 class="post-title">
