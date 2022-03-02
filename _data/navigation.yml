@@ -1,5 +1,7 @@
 - title: Home
   url: /
+- title: Blog
+  url: /blog/
 - title: Windows
   url: /windows/
 - title: Network
