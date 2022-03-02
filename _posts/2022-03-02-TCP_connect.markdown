@@ -6,6 +6,7 @@ categories: Network
 ---
 
 ## TCP 연결
+
 <br>
 <br>
 프리앰블 / 스타트 프레임 딜리미터 / MAC 헤더 / IP 헤더 / TCP 헤더 / 데이터 / FCS <br>
