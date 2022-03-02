@@ -31,6 +31,13 @@ github_username: francium503
 
 # Build settings
 
+analytics:
+  provider               : "google-gtag" 
+                          # false (default), "google", "google-universal", "google-gtag", "custom"
+google:
+  tracking_id          : "G-2RT5N150P1"
+  anonymize_ip         : # true, false (default)
+
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
