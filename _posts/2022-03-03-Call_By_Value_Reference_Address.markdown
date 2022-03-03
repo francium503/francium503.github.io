@@ -31,12 +31,12 @@ int main()
 	int* c = &a;
 
 	CallByValue(a);
-  CallByValue(b);
-  CallByValue(*c);
+	CallByValue(b);
+	CallByValue(*c);
 
 	CallByReference(a);
 	CallByReference(b);
-  CallByReference(*c);
+	CallByReference(*c);
 
 	CallByAddress(&a);
 	CallByAddress(&b);
@@ -119,7 +119,7 @@ Value 콜 일때는 ecx에 한번 더 eax를 넣고 함수 콜을 한다.. <br>
 <br>
 <br>
 함수 내부에서는 어떻게 동작하나.. <br>
-우선 Value 일때
+<br>
 ```c++
 mov   eax, dword ptr [a]
 push  eax
