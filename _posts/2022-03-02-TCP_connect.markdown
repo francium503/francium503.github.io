@@ -5,11 +5,10 @@ date:   2022-03-02 15:04:59 +0900
 categories: Network
 ---
 
-## TCP 연결
-
 <br>
 <br>
 프리앰블 / 스타트 프레임 딜리미터 / MAC 헤더 / IP 헤더 / TCP 헤더 / 데이터 / FCS <br>
+
 <br>
 MTU : IP헤더 부터 데이터의 최대 길이. Maximum Transmission Unit <br>
 MSS : 데이터 최대 길이. Maximum Segment Size <br>
