@@ -6,6 +6,7 @@ categories: Network
 ---
 
 TCP에서 연결을 끊는 건 간단하다. <br>
+
 TCP헤더에서 FIN비트를 1로 설정해서 보내면 된다. <br>
 끝 <br>
 <br>
