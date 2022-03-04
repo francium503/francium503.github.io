@@ -57,11 +57,3 @@ remote_theme: https://github.com/francium503/jekyll-theme-yat
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-# Analytics
-google_analytics:
-  provider  : "google-gtag" 
-                          # false (default), "google", "google-universal", "google-gtag", "custom"
-google:
-  tracking_id : "G-2RT5N150P1"
-  anonymize_ip  : false # true, false (default)
