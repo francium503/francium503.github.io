@@ -36,7 +36,7 @@ plugins:
   - jekyll-feed
   - jekyll-remote-theme
 
-remote_theme: https://github.com/francium503/ockham
+remote_theme: https://github.com/francium503/jekyll-theme-yat
 
 # Exclude from processing.
 # The following items will not be processed, by default.
