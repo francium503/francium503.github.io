@@ -57,3 +57,5 @@ remote_theme: https://github.com/francium503/jekyll-theme-yat
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+google_analytics: "G-2RT5N150P1"
