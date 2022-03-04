@@ -29,6 +29,7 @@ url: "https://francium503.github.io/" # the base hostname & protocol for your si
 twitter_username: 
 github_username: francium503
 google_analytics: "G-2RT5N150P1"
+paginate: 5
 
 defaults:
   home:
