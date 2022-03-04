@@ -31,6 +31,12 @@ github_username: francium503
 categories: ["network","windows","cpp"]
 google_analytics: "G-2RT5N150P1"
 
+defaults:
+  home:
+    heading: "헤더"
+    subheading: "서브헤더"
+#   banner: "Your image url"
+
 # Build settings
 
 
