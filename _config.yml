@@ -29,6 +29,7 @@ url: "https://francium503.github.io/" # the base hostname & protocol for your si
 twitter_username: 
 github_username: francium503
 categories: ["network","windows","cpp"]
+google_analytics: "G-2RT5N150P1"
 
 # Build settings
 
@@ -59,4 +60,3 @@ remote_theme: https://github.com/francium503/jekyll-theme-yat
 #   - vendor/gems/
 #   - vendor/ruby/
 
-google_analytics: "G-2RT5N150P1"
