@@ -2,7 +2,7 @@
 layout: post
 title:  "리졸버 동작 방법"
 date:   2022-03-02 10:14:59 +0900
-category: Network
+categories: Network
 ---
 
 ### 리졸버의 동작 방법
