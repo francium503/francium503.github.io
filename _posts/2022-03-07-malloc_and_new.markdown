@@ -2,7 +2,7 @@
 layout: post
 title:  "malloc 과 new"
 date:   2022-03-07 14:38:59 +0900
-categories: cpp, Windows
+categories: cpp Windows
 ---
 
 이번에는 메모리 할당에 대해서 공부해 볼려고 한다. <br>
