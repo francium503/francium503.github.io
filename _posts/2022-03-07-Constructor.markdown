@@ -61,7 +61,7 @@ Bar(Bar&& rhs);
 ```
 <br>
 나에게 취약한 모던 c++(?) 인 c++11에서 추가된 개념이다.. <br>
-(cppreference.com)[https://en.cppreference.com/w/cpp/language/move_constructor] 에 의하면 rvalue 나 xvalue 에 의해서 초기화 될때 호출 된다고 한다. <br>
+[cppreference.com](https://en.cppreference.com/w/cpp/language/move_constructor) 에 의하면 rvalue 나 xvalue 에 의해서 초기화 될때 호출 된다고 한다. <br>
 예를 들면 <br>
 ```c++
 Bar a = std::move(b);
