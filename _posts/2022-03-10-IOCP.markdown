@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "IOCP"
+date:   2022-03-10 10:50:59 +0900
+categories: cpp Windows
+---
+
+IOCP에 대해서 얘기를 하기전에 Overlapped IO를 일단 알아야 한다. <br>
+내가 배운 순서도 그렇고, IOCP를 쓸때 Overlapped 구조체를 사용 하기도 하고, CALLBACK 기반 Overlapped IO 를 쓰기도 하기 때문이다. <br>
+<br>
+<br>
+### Overlapped IO
+
+<br>
+Overlapped IO는 중첩된 IO다 ... <br>
+<br>
+Event 기반이랑 CALLBACK 기반이 있다고 하는데, Event 기반으로는 무언가를 만들어보질 않았다. <br>
+IOCP를 공부하기 위해서 CALLBACK 기반으로만 만들어 봤는데, Event 기반은 64개의 소켓 제한이 있다고 한다. <br>
+<br>
+Overlapped IO는 커널단에 맡겨서 IO를 중첩해서 처리 한다고 한다. <br> 
+커널단에서 IO 작업이 끝난 후, 완료되었음을 통지해준다. <br>
+이쯤 부터 좀 더 설명하다 보면 글솜씨가 부족해서 IOCP까지 넘어갈거 같아서 IO 작업 완료 통지에 대한 부분은 여기까지 얘기를 하고, <br>
+이때 커널단에 IO를 맡겨서 처리하면 유저단에서 신경쓰지 않아도 된다. <br>
+다음 작업을 계속진행 해도 된다는 뜻이다. <br>
+고로 비동기 적인 작업이고, <br>
+비동기 작업으로 커널단에 맡기므로 유저입장에서는 블록걸리지 않고 논블록 상태로 진행 할 수 있다. <br>
+Overlapped IO는 비동기 입출력을 실행하면 alertable wait 상태로 변경된다. <br>
+alertbale wait 상태는 비동기 입출력을 위한 상태로, 이 상태에 있어야 완료 루틴이 호출된다. <br>
+입출력 작업이 완료되면 APC 큐에 결과를 저장한다. <br>
+입출력 작업을 호출한 스레드가 alertable wait 상태에 있으면 APC 큐에 저장된 정보를 참조해서 완료 루틴을 호출한다. <br>
+모든 완료 루틴을 처리하면, alertable wait 상태에서 탈출한다. <br>
+<br>
+대충 요약 해보면 <br>
+비동기/논블록 IO <br>
+중첩 상태 <br>
+실행 시 alertable wait 상태로 변경<br>
+입출력 작업 완료 후 APC 큐에 삽입 및 저장<br>
+APC 큐를 참조해서 완료 루틴 진행 <br>
+정도 인거 같다. <br>
+<br>
+<br>
+
+### IOCP
+
+<br>
+IOCP는 위에 말한 Overlapped IO 를 포함해 위에 Overlapped IO에서 말한 완료통지를 받으면, <br>
+그 이후 작업을 진행 해주는 ( 이래서 CALLBACK 이 되는 ) 애다 (?) <br>
+쓰레드 관련된 말이 빠졌는데, <br>
+비동기 IO들에 대해 완료 통지가 오면, 스레드 풀 에서 GQCS 를 호출해서 쉬고있던 스레드가 깨어나서 작동 한다. <br>
+이때 스레드 풀은 큐로 구성되서 LIFO 로 동작한다. <br>
+제일 최근에 사용한 스레드를 재사용. <br>
+( 아마도 컨텍스트 스위치 비용 절감, 높은 캐시 히트율 기대, 낮은 페이지 폴트 기대 의 이유 일것 같다. ) <br>
+또 Overlapped IO는 APC 큐를 사용하지만, IOCP는 윈도우 API의 completion port 를 사용한다. <br>
+(APC 큐의 확장된 개념)<br>
+APC 큐는 alertable wait 상태로 진입해야하지만, completion port 는 GQCS 로 불리는 `GetQueuedCompletionStatus()` 함수를 호출해야한다.<br>
+진행은 APC큐와 비슷하다. <br>
+비동기 입출력 시작 <br>
+GQCS 호출 <br>
+비동기 입출력 완료가 되면 GQCS 호출한 스레드에서 비동기 입출력 결과 처리 <br>
+이다. <br>
+<br>
+<br>
+
+### 마무리
+
+<br>
+대략 정리해보면 <br>
+Overlapped IO 와 IOCP는 비동기 입출력 + 비동기 통지다. <br>
+IOCP를 한마디로 요약 해보면, <br>
+여러 쓰레드를 사용해서 완료통지를 받으면 비동기 입출력을 처리해주는 io모델이다. <br>
+정도로 얘기하고 기타 특이사항을 얘기 할거 같다. <br>
+스레드는 LIFO로 가져와서 재사용하고, 버퍼를 등록하기 때문에 네트워크에서 사용할 때 recv에 걸어두는 논 페이지드 메모리를 많이 사용하고, <br>
+이걸 피하기위해 zerosize로 recv 걸어둔다음에, recv 완료통지가 오면 그때 몇 byte 왔는지 확인 후 직접 recv 해서 논 페이지드 메모리를 아낀다. <br>
+정도로.. <br>
+<br>
+<br>
+
+
+
+
