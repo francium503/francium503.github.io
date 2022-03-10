@@ -30,8 +30,8 @@ paginate: 5
 
 defaults:
   home:
-    heading: "헤더"
-    subheading: "서브헤더"
+    heading: "주의"
+    subheading: "이 블로그에 존재하는 기술적 내용에는 틀린 내용이 다수 첨가되어 있을 수 있습니다."
 #   banner: "Your image url"
 
 # Build settings
