@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "OSI 7 계층"
-date:   2022-03-07 10:20:59 +0900
+date:   2022-03-10 12:04:59 +0900
 categories: Network
 ---
 
