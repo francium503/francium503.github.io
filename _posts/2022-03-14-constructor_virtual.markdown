@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "생성자와 가상 함수"
-date:   2022-03-03 15:39:59 +0900
+date:   2022-03-14 16:20:59 +0900
 categories: cpp
 ---
 
