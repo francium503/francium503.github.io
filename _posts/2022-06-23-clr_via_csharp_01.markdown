@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CLR via C#"
-date:   2022-04-04 11:03:59 +0900
+date:   2022-06-23 22:00:59 +0900
 categories: Csharp CLR
 ---
 
