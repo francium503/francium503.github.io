@@ -2,7 +2,7 @@
 ---
 layout: post
 title:  "실행 시점과의 연관성"
-date:   2022-06-24 21:36:59 +0900
+date:  2022-06-24 21:36:59 +0900
 categories: Csharp CLR
 ---
 
