@@ -15,6 +15,7 @@ categories: Csharp CLR
 스택이 사용되는 용도도 지역변수를 보관하거나, 함수 콜 간의 매개변수 전달에 사용되는것도 똑같다.<br>
 <br>
 이제 CLR에서 다음과 같은 코드가 있을때 동작하는 내용에 대해서 정리를 해보겠다. <br> 
+
 ```c#
 internal class a {
   public         Int32 getInt() { ... }
@@ -26,8 +27,11 @@ internal sealed class b : a {
   public override String getString() { ... }
 }
 ```
+
 <br>
 이떄 저 클래스를 초기화하고 함수를 호출하는 메서드의 코드가 동작한다고 가정해보자. <br>
+<br>
+
 ```c#
 void foo() {
   a var;
@@ -38,6 +42,7 @@ void foo() {
   var.getString();
 }
 ```
+
 <br>
 우선 JIT 컴파일러가 호출하는 메서드의 IL 코드를 네이티브 명령어로 컴파일한다.<br>
 이때 타입정보등에 필요한 것들은 힙에 올라가게 된다. <br>
